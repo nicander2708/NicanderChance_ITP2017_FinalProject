@@ -7,7 +7,8 @@ def main():
     screen.fill((255,255,255))
     pygame.display.set_caption("Main Menu")
     while True:
-        screen.fill((255,255,255))
+        bg = image.load('snowbackground.jpeg')
+        screen.blit(bg,(0,0))
         Exit = pygame.draw.rect(screen,(0,155,0),(150,500,180,70))
         Play = pygame.draw.rect(screen,(155,0,0),(650,500,180,70))
         myfont = pygame.font.SysFont('Times New Roman',25)
@@ -17,7 +18,7 @@ def main():
         playtext = playfont.render('Play', False, (0, 0, 0))
         screen.blit(playtext,(650, 520))
         titlefont = pygame.font.SysFont('Times New Roman',40)
-        titletext = titlefont.render('Welcome to "Escape the snowflake army"',False,(0,0,0))
+        titletext = titlefont.render('Welcome to "Snowflake Invasion!!"',False,(0,0,0))
         screen.blit(titletext,(175,0))
         pygame.display.update()
         e = event.wait()

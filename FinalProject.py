@@ -31,7 +31,7 @@ def fproject():
     class Snow(sprite.Sprite):
         def __init__(self):
             sprite.Sprite.__init__(self)
-            self.image = Surface( (11,17) )
+            self.image = Surface( (11,11) )
             self.rect = self.image.get_rect()
             poly = ((0,1),(2,4),(8,4),(10,1),(10,8),(7,10),(10,16),(0,16),(3,10),(0,8))
             draw.line(self.image,Color("blue"),(5,0),(5,10))#draw.line is used to draw a line
@@ -57,16 +57,9 @@ def fproject():
     width = 800
     height = 600
     screen = display.set_mode((width,height))
-    pygame.display.set_caption('Escape the snowflake army')
+    pygame.display.set_caption('Snowflake Invasion!!')
     clock = time.Clock()#this variable sets the app to run on a clock's time system
     snow = Snow()
-
-    class Background():
-        def __init__(self, imagefile):
-            self.display = pygame.display.set_mode((800,600))
-            self.image = image.load(imagefile)
-            self.display.blit((self.image,(0,0)))
-
 
     #setting positions at which enemy flakes will spawn
     vxranges = ((0,0),(0,0),(-1,1),(1,2),(0,0),(1,1),(1,1),(2,2),(-2,2),(-2,2),(-2,2),(-3,3),(0,0))
@@ -121,7 +114,7 @@ def fproject():
                 enemies.draw(screen)
         else:
             myfont = pygame.font.SysFont("Comic Sans Ms", 25)
-            textsurface = myfont.render('Congratulations, you won!m',False, (255, 255, 255))
+            textsurface = myfont.render('Congratulations, you won!',False, (255, 255, 255))
             screen.blit(textsurface,(100,100))
             myfont = pygame.font.SysFont("Comic Sans Ms", 25)
             textsurface = myfont.render('play again by pressing \'n\'',False, (255, 255, 255))
@@ -150,10 +143,11 @@ def fproject():
             menu.main()
         if level==1 and snow.lives==12 and snow.rect.bottom==height:
             myfont = pygame.font.SysFont("Comic Sans Ms", 20)
-            textsurface = myfont.render('You are the sole survivor of the Blue Flakes.You must escape before the white flakes surround and capture you', False, (255, 255, 255))
+            textsurface = myfont.render('You are the sole survivor of the Blue Flakes.', False, (255, 255, 255))
             screen.blit(textsurface,(1,300))
             myfont = pygame.font.SysFont("Comic Sans Ms", 20)
-            textsurface = myfont.render('You must escape before the army of black flakes surround and capture you', False, (255, 255, 255))
+            textsurface = myfont.render('You must escape before the army of red flakes surround and capture you', False,
+                                        (255, 255, 255))
             screen.blit(textsurface,(1,500))
         display.update()
         clock.tick(60)#60 here refers to how fast the program will run in terms of speed.
